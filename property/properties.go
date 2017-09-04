@@ -1,4 +1,4 @@
-package properties
+package property
 
 import (
 	"os"
@@ -29,9 +29,11 @@ func FromFile(path string) *Properties {
 func getProperties(file *os.File) map[string]string {
 	reader := bufio.NewReader(file)
 	result := make(map[string]string)
-	for line, _, err := reader.ReadLine(); line != nil; {
+	for {
+		line, _, err := reader.ReadLine()
 		if err != nil {
 			panic(err)
+			break
 		}
 		s := string(line)
 		strings.Replace(s, " ", "", -1)
