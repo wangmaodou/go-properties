@@ -1,12 +1,14 @@
-package property
+package go_properties
 
 import (
 	"testing"
 	"fmt"
-	"./"
 )
 
-func (p Properties) test( t *testing.T) {
-	p:=NewProperties("./property/test.properties")
+func Test( t *testing.T) {
+	p:=NewProperties("./test.properties")
 	fmt.Println(p.String())
+	if p.GetString("name")!="maodou"{
+		t.Error("The value is wrong!")
+	}
 }
