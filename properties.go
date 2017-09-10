@@ -1,4 +1,4 @@
-package go_properties
+package prop
 
 import (
 	"os"
@@ -43,7 +43,7 @@ func getProperties(file *os.File) map[string]string {
 			continue
 		}
 		kv := strings.Split(s, "=")
-		if len(kv) < 2 {
+		if len(kv) != 2 {
 			continue
 		}
 		result[kv[0]] = kv[1]

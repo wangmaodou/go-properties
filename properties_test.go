@@ -1,4 +1,4 @@
-package go_properties
+package prop
 
 import (
 	"testing"
